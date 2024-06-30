@@ -1,14 +1,13 @@
-// Input component extends from shadcnui - https://ui.shadcn.com/docs/components/input
 "use client";
 import * as React from "react";
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+export interface TextAreaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
-const TextArea = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
+const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  ({ className, ...props }, ref) => {
     const radius = 100; // change this to increase the rdaius of the hover effect
     const [visible, setVisible] = React.useState(false);
 
@@ -38,7 +37,6 @@ const TextArea = React.forwardRef<HTMLInputElement, InputProps>(
         className="p-[2px] rounded-lg transition duration-300 group/input"
       >
         <textarea
-          type={type}
           className={cn(
             `flex h-50 w-full border-none bg-zinc-800 text-white shadow-input rounded-md px-3 py-2 text-sm  file:border-0 file:bg-transparent 
             file:text-sm file:font-medium placeholder-text-neutral-600 

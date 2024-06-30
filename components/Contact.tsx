@@ -102,12 +102,7 @@ export default function Contact() {
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="Message">Message</Label>
-          <TextArea
-            id="message"
-            placeholder="Message"
-            name="message"
-            type="text"
-          />
+          <TextArea id="message" placeholder="Message" name="message" />
         </LabelInputContainer>
 
         <button
