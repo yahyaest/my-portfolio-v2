@@ -57,12 +57,12 @@ export const AnimatedTooltip = ({
   const isTablet = useMediaQuery({ minWidth: 600, maxWidth: 767 });
   const isDesktop = useMediaQuery({ minWidth: 768 });
 
-  let wordsPerLine = 5;
+  let wordsPerLine = 7;
   if (isSmallMobile) wordsPerLine = 7;
   if (isMediumMobile) wordsPerLine = 8;
   if (isLargeMobile) wordsPerLine = 10;
-  if (isTablet) wordsPerLine = 11;
-  if (isDesktop) wordsPerLine = 11;
+  if (isTablet) wordsPerLine = 10;
+  if (isDesktop) wordsPerLine = 10;
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const springConfig = { stiffness: 100, damping: 5 };
@@ -114,18 +114,71 @@ export const AnimatedTooltip = ({
                   }}
                   className=" translate-x-1/2 flex text-xs flex-col items-center justify-center rounded-md bg-black-200 z-50 shadow-xl px-4 py-2"
                 >
-                  <div className="font-bold text-lg text-purple relative z-30 text-base mb-2">
+                  <div className="font-bold text-lg text-purple relative z-30 mb-2">
                     {item.title}
                   </div>
-                  <div className="text-white text-sm mb-5">
+                  <div className="text-white text-sm text-left mb-5">
                     {item.des
-                      .split(" ")
-                      .reduce((acc: any[], word, index) => {
-                        const chunkIndex = Math.floor(index / wordsPerLine);
-                        if (!acc[chunkIndex]) {
-                          acc[chunkIndex] = [];
+                      .split("\n")
+                      // .reduce((acc: any[], word, index) => {
+                      //   const chunkIndex = Math.floor(index / wordsPerLine);
+                      //   if (!acc[chunkIndex]) {
+                      //     acc[chunkIndex] = [];
+                      //   }
+                      //   acc[chunkIndex].push(word);
+                      //   return acc;
+                      // }, [])
+                      .reduce((acc: any[], line, index) => {
+                        const words = line.trim().split(" ");
+                        let wordIndex = 1;
+                        let lineWordIndex = 1;
+                        let outputLine = [];
+                        for (const word of words) {
+                          // if the word is not the first word in the line and not the last word in the line
+                          if (
+                            lineWordIndex % wordsPerLine !== 0 &&
+                            wordIndex > 0
+                          ) {
+                            outputLine.push(word);
+                            wordIndex++;
+                            if (word.length > 2 && word.length <= 9) {
+                              lineWordIndex++;
+                            }
+                            if (word.length > 9) {
+                              if (
+                                lineWordIndex % wordsPerLine !==
+                                wordsPerLine - 1
+                              ) {
+                                lineWordIndex = lineWordIndex + 2;
+                              } else {
+                                lineWordIndex++;
+                              }
+                            }
+                            if (wordIndex > words.length) {
+                              acc.push(outputLine);
+                            }
+                            // if the word is the last word in the line
+                          } else {
+                            acc.push(outputLine);
+                            outputLine = [];
+                            wordIndex++;
+                            lineWordIndex = 1;
+                            outputLine.push(word);
+                            if (word.length > 2 && word.length <= 9) {
+                              lineWordIndex++;
+                            }
+                            if (word.length > 9) {
+                              if (
+                                lineWordIndex % wordsPerLine !==
+                                wordsPerLine - 1
+                              ) {
+                                lineWordIndex = lineWordIndex + 2;
+                              } else {
+                                lineWordIndex++;
+                              }
+                            }
+                          }
                         }
-                        acc[chunkIndex].push(word);
                         return acc;
                       }, [])
                       .map((line, index) => (
@@ -164,7 +217,7 @@ export const AnimatedTooltip = ({
                 <CardItem
                   as="p"
                   translateZ="60"
-                  className="lg:text-md lg:font-normal font-light text-sm line-clamp-2"
+                  className="lg:text-md lg:font-normal font-light text-sm line-clamp-3"
                   style={{
                     color: "#BEC1DD",
                     margin: "1vh 0",
