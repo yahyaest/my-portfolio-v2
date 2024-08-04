@@ -21,7 +21,7 @@ const setStats = async () => {
     const session = getSessionCookie();
     const payload = session ? { sessionId: session } : {};
     // ToDO add base_url
-    const response = await fetch("http://localhost:3000/api/stats", {
+    const response = await fetch(`/api/stats`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
