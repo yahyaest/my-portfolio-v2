@@ -28,6 +28,7 @@ export default function Contact() {
         (result) => {
           setSuccess(true);
           showToast("Message Sent Successfully");
+          (formRef.current as any).reset();
         },
         (error) => {
           setError(true);

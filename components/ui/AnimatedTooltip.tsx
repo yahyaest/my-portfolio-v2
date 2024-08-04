@@ -188,7 +188,13 @@ export const AnimatedTooltip = ({
                           transform: `translateX(-${5 * index + 2}px)`,
                         }}
                       >
-                        <Image src={icon} alt="icon5" className="p-2" />
+                        <Image
+                          src={icon}
+                          alt="icon5"
+                          className="p-2"
+                          width={50}
+                          height={50}
+                        />
                       </div>
                     ))}
                   </CardItem>

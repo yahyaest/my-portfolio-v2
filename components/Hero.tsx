@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
+    <div className="pb-20 pt-36" id="about">
       {/**
        *  UI: Spotlights
        *  Link: https://ui.aceternity.com/components/spotlight
@@ -67,7 +67,7 @@ const Hero = () => {
             <Image
               height={600}
               width={600}
-              src="/cv4.jpg"
+              src="/cv4.png"
               alt="avatar"
               className="rounded-full h-54 w-54 sm:h-60 sm:w-60 border-2 border-purple mx-10"
             />
