@@ -72,6 +72,29 @@ export const gridItems = [
 
 export const projects = [
   {
+    id: 0,
+    title: "Trade App Simulator",
+    des: `Developed with a microservices architecture using Docker, this application integrates several key services: 
+    * Client Service: Built with Next.js to deliver a responsive and interactive front-end experience. 
+    * Gateway: Implemented with NestJS, it handles routing and service orchestration across the application. 
+    * Crypto and Wallet Services: Developed using NestJS to manage cryptocurrency transactions and wallet functionalities. 
+    * Task Scheduler: Utilizes Django and Celery for background task management and scheduling.This includes periodic tasks for monitoring coin prices, sending alerts when specific price thresholds are reached, executing buy operations, and updating wallet history. 
+    * Notification Service: Leveraging FastAPI and WebSocket technology, it provides real-time alerts and notifications for user transactions. 
+    The application integrates PostgreSQL for data storage and Redis as a message broker. It simulates a trading platform where users can buy and sell cryptocurrencies, monitor their wallet balance, and receive transaction notifications. 
+    The App features a comprehensive dashboard where users can view their gains and losses, analyze the best and worst transactions, monitor asset performance, and explore a detailed history chart of their trading activities.`,
+    img: "/Trade_App_Simulator.png",
+    link: "https://anime-app.yahyamachat.com/",
+    iconLists: [
+      "/docker.svg",
+      "/Next.js.svg",
+      "nestjs.svg",
+      // "/ts.svg",
+      "/django.png",
+      "fastapi.svg",
+      "postgresql-icon.svg",
+    ],
+  },
+  {
     id: 1,
     title: "Next Anime App",
     des: "Build using NextJS and MongoDB plus React Context as state manger and sass as css precompiler. On top of that, the app contains user authentication using jwt tokens. As user you can create an account,check latest animes news, find anime/manga and add them to your favourite list. Every anime/manga info page contains a comment section to discuss and exchange opinions. The app offer a chat room section and anime bots section where you can chat with AI anime charters.",
