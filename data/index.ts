@@ -73,6 +73,14 @@ export const gridItems = [
 export const projects = [
   {
     id: 0,
+    title: "The Full Stack Blog",
+    des: `Built with Next.js and TypeScript, this full-stack blog platform offers a comprehensive resource for web developers. Explore articles covering a wide range of topics, including secure development, efficient monitoring, deployment strategies, technology trends, and best practices.`,
+    img: "/The_Full_Stack_Blog.png",
+    link: "https://blog-app.yahyamachat.com/",
+    iconLists: ["/docker.svg", "/Next.js.svg", "/ts.svg"],
+  },
+  {
+    id: 1,
     title: "Trade App Simulator",
     des: `Developed with a microservices architecture using Docker, this application integrates several key services: 
     * Client Service: Built with Next.js to deliver a responsive and interactive front-end experience. 
@@ -83,7 +91,7 @@ export const projects = [
     The application integrates PostgreSQL for data storage and Redis as a message broker. It simulates a trading platform where users can buy and sell cryptocurrencies, monitor their wallet balance, and receive transaction notifications. 
     The App features a comprehensive dashboard where users can view their gains and losses, analyze the best and worst transactions, monitor asset performance, and explore a detailed history chart of their trading activities.`,
     img: "/Trade_App_Simulator.png",
-    link: "https://anime-app.yahyamachat.com/",
+    link: "https://trade-simulator.yahyamachat.com/",
     iconLists: [
       "/docker.svg",
       "/Next.js.svg",
@@ -95,7 +103,7 @@ export const projects = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     title: "Next Anime App",
     des: "Build using NextJS and MongoDB plus React Context as state manger and sass as css precompiler. On top of that, the app contains user authentication using jwt tokens. As user you can create an account,check latest animes news, find anime/manga and add them to your favourite list. Every anime/manga info page contains a comment section to discuss and exchange opinions. The app offer a chat room section and anime bots section where you can chat with AI anime charters.",
     img: "/Next_Anime_App.png",
@@ -110,7 +118,7 @@ export const projects = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: "Games API Finder",
     des: "Build using React as frontend and Firebase as database and igdb API for fetching video games data. As user you can login/register to the app, search for games and save your favourites video games.",
     img: "/Games_API_Finder.png",
@@ -119,7 +127,7 @@ export const projects = [
     iconLists: ["/re.svg", "/firebase-icon.svg", "/tail.svg"],
   },
   {
-    id: 3,
+    id: 4,
     title: "COVID-19 Tracker",
     des: "First project using React and covid-19 api to fetch covid data. The App fetch covid-19 data for the chosen countries then visualize the result in Cards, Chart and Map.",
     img: "/COVID-19_Tracker.png",
@@ -128,7 +136,7 @@ export const projects = [
     iconLists: ["/re.svg"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Bookstore App",
     des: "Build an application using the MERN stack (MongoDB, Express, React, and Node.js) with Redux as the state manager. The app features user authentication using JWT tokens. Users can create an account, search for, filter, and sort books. They can also add books to their favorites and cart lists. Each book's information page includes a comment section for users to discuss and exchange opinions.",
     img: "/Bookstore_App.png",
@@ -144,7 +152,7 @@ export const projects = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     title: "PC Builder App",
     des: "Build using Vanilla JavaScript as frontend , Flask as backend and and PostgreSQL as database. As user you can build your own PC station from differents Pc hardware components and make an order to buy.",
     img: "/PC_Builder_App.png",
