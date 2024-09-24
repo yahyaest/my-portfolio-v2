@@ -45,5 +45,5 @@ EXPOSE 3000
 # Start the app
 # CMD ["npm", "start"]
 
-CMD [ "node", "/code/standalone/server.js" ]
-# CMD ["sh", "-c", "tail -f /dev/null"]
+# CMD [ "node", "/code/standalone/server.js" ]
+CMD ["sh", "-c", "tail -f /dev/null"]

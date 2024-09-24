@@ -12,29 +12,31 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/app
-      - /app/node_modules
-      - /app/.next
+      # - .:/app
+      # - /app/node_modules
+      # - /app/.next
+      - ./entrypoint.sh:/code/entrypoint.sh
       - ./stats.json:/code/standalone/public/data/stats.json
+    command: sh -c "chmod +x /code/entrypoint.sh && /code/entrypoint.sh"
     networks:
       - portfolio-network
 
-  # portfolio-nginx:
-  #   build:
-  #     context: .
-  #     dockerfile: ./nginx/Dockerfile
-  #   # build: nginx
-  #   # image: nginx:1.24.0
-  #   container_name: portfolio-nginx
-  #   ports:
-  #     - "8080:80"
-  #   volumes:
-  #     - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-  #     - ./stats.json:/usr/share/nginx/html/public/data/stats.json
-  #     # - ./.next/:/usr/share/nginx/html/
-  #     # - ./public/:/usr/share/nginx/html/public/
-  #   networks:
-  #     - portfolio-network
+  portfolio-nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    # build: nginx
+    # image: nginx:1.24.0
+    container_name: portfolio-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      # - ./stats.json:/usr/share/nginx/html/public/data/stats.json
+      # - ./.next/:/usr/share/nginx/html/
+      # - ./public/:/usr/share/nginx/html/public/
+    networks:
+      - portfolio-network
 
 networks:
   portfolio-network:
